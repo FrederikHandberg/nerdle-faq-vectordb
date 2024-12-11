@@ -10,3 +10,67 @@ Features
 ## Architecture
 
 ![plot](./Architecture.png)
+
+
+## API Endpoints
+
+### 1. Insert FAQ Entry
+Add a new FAQ entry to the vector database.
+
+```bash
+curl -X POST "https://faq-vectordb.fupsonline.workers.dev/insert" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "question": "What is your return policy?",
+    "answer": "You can return items within 30 days."
+  }'
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "id": "1733915502976"
+}
+```
+
+### 2. Search FAQs
+Search for FAQs using natural language queries.
+
+```bash
+curl "https://faq-vectordb.fupsonline.workers.dev/search?q=how%20do%20returns%20work"
+```
+
+**Response:**
+```json
+{
+  "matches": [
+    {
+      "id": "1733915502976",
+      "score": 0.8723968,
+      "question": "What is your return policy?",
+      "answer": "You can return items within 30 days."
+    }
+  ]
+}
+```
+
+## Understanding Results
+
+- `score`: Similarity score between 0 and 1 (higher is better)
+- `question`: The original FAQ question
+- `answer`: The corresponding answer
+- `id`: Unique identifier for the FAQ entry
+
+## Example Queries
+
+1. Basic policy questions:
+```bash
+curl "https://faq-vectordb.fupsonline.workers.dev/search?q=return%20policy"
+```
+
+2. Natural language queries:
+```bash
+curl "https://faq-vectordb.fupsonline.workers.dev/search?q=I%20want%20to%20send%20back%20my%20order"
+```
+
