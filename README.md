@@ -9,4 +9,4 @@ Features
 
 ## Architecture
 
-[Architecture.png]
+![plot](./Architecture.png)
