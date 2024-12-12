@@ -21,8 +21,8 @@ Add a new FAQ entry to the vector database.
 curl -X POST "https://faq-vectordb.fupsonline.workers.dev/insert" \
   -H "Content-Type: application/json" \
   -d '{
-    "question": "What is your return policy?",
-    "answer": "You can return items within 30 days."
+    "question": "Who created Nerdle?",
+    "answer": "Nerdle was created by a team of students in Denmark for their web technologies course work."
   }'
 ```
 
@@ -66,11 +66,11 @@ curl "https://faq-vectordb.fupsonline.workers.dev/search?q=how%20do%20returns%20
 
 1. Basic policy questions:
 ```bash
-curl "https://faq-vectordb.fupsonline.workers.dev/search?q=return%20policy"
+curl "https://faq-vectordb.fupsonline.workers.dev/search?q=Who%20created%20Nerdle?"
 ```
 
 2. Natural language queries:
 ```bash
-curl "https://faq-vectordb.fupsonline.workers.dev/search?q=I%20want%20to%20send%20back%20my%20order"
+curl "https://faq-vectordb.fupsonline.workers.dev/search?q=Nerdle%20was%20created%20by%20a%20team%20of%20students%20in%20Denmark%20for%20their%20web%20technologies%20course%20work."
 ```
 
